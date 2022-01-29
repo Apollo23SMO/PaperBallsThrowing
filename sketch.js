@@ -5,6 +5,10 @@ const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 
 var ball;
+var r = 40;
+var world;
+
+var groundMain, leftWall, rightWall
 
 function preload()
 {
@@ -33,6 +37,9 @@ function setup() {
 
 	rightWall = new ground(1100, 650, 20, 120)
 
+	ball = Bodies.circle(260, 100, r/2, ball_options)
+	World.add (world, ball)
+
 
 	Engine.run(engine);
   
@@ -46,6 +53,8 @@ function draw() {
   groundMain.display();
   leftwall.display();
   rightwall.display();
+
+  ellipse(ball.position.x, ball.position.y, r)
 
   drawSprites();
  
